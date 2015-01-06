@@ -32,7 +32,7 @@ brew install bash
 brew install bash-completion
 grep /usr/local/bin/bash /etc/shells > /dev/null
 if [ $? -eq 1 ]; then
-  sudo echo /usr/local/bin/bash > /etc/shells
+  echo /usr/local/bin/bash | sudo tee -a /etc/shells
 fi
 chsh -s /usr/local/bin/bash
 
