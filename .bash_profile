@@ -9,6 +9,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+#[ -r ~/.profile ] && [ -f ~/.profile ] && source ~/.profile;
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
 

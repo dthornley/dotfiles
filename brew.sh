@@ -49,6 +49,10 @@ brew install narwhal
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
+
+# Picturae - install openssl first before php
+brew install openssl
+
 brew install homebrew/php/php55 --with-gmp
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
@@ -101,6 +105,7 @@ brew install zopfli
 #
 brew install nvm
 brew install boot2docker
+brew install gpg
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 brew cask install phpstorm
