@@ -30,6 +30,11 @@ brew install gnu-sed --with-default-names
 # running `chsh`.
 brew install bash
 brew install bash-completion
+grep /usr/local/bin/bash /etc/shells > /dev/null
+if [ $? -eq 1 ]; then
+  sudo echo /usr/local/bin/bash > /etc/shells
+fi
+chsh -s /usr/local/bin/bash
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -51,17 +56,17 @@ brew install bfg
 brew install binutils
 brew install binwalk
 brew install cifer
-brew install dex2jar
-brew install dns2tcp
+#brew install dex2jar
+#brew install dns2tcp
 brew install fcrackzip
 brew install foremost
-brew install hashpump
-brew install hydra
-brew install john
-brew install knock
+#brew install hashpump
+#brew install hydra
+#brew install john
+#brew install knock
 brew install nmap
 brew install pngcheck
-brew install socat
+#brew install socat
 brew install sqlmap
 brew install tcpflow
 brew install tcpreplay
@@ -89,7 +94,31 @@ brew install zopfli
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
-brew install node
+#brew install node
+
+#
+# Picturae packages
+#
+brew install nvm
+brew install boot2docker
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
+brew cask install phpstorm
+brew cask install pgadmin3
+brew cask install java
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install imagealpha
+brew cask install imageoptim
+brew cask install iterm2
+#brew cask install macvim
+brew cask install miro-video-converter
+brew cask install opera
+brew cask install sublime-text
+brew cask install the-unarchiver
+brew cask install ukelele
+brew cask install virtualbox
+brew cask install vlc
 
 # Remove outdated versions from the cellar.
 brew cleanup
