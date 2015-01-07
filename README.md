@@ -69,6 +69,14 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 ./brew.sh
 ```
 
+### Install rvm
+
+Install rvm and ruby 2.2.0
+
+```bash
+./rvm.sh
+```
+
 ## Feedback
 
 Suggestions/improvements
