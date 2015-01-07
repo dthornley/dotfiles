@@ -108,6 +108,7 @@ brew install nvm
 brew install composer
 brew install svn
 brew install mysql
+brew install closure-compiler
 brew install boot2docker
 brew install gpg
 brew install caskroom/cask/brew-cask
