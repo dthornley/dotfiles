@@ -36,6 +36,7 @@ if [ $? -eq 1 ]; then
 fi
 chsh -s /usr/local/bin/bash
 
+
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
@@ -104,6 +105,7 @@ brew install zopfli
 # Picturae packages
 #
 brew install nvm
+brew install svn
 brew install boot2docker
 brew install gpg
 brew install caskroom/cask/brew-cask
@@ -124,6 +126,13 @@ brew cask install the-unarchiver
 brew cask install ukelele
 brew cask install virtualbox
 brew cask install vlc
+
+# configure nvm
+grep "source $(brew --prefix nvm)/nvm.sh" ~/.bash_profile > /dev/null
+if [ $? -eq 1 ]; then
+  echo source $(brew --prefix nvm)/nvm.sh >> ~/.bash_profile
+  echo export NVM_DIR=~/.nvm >> ~/.bash_profile
+fi
 
 # Remove outdated versions from the cellar.
 brew cleanup
