@@ -77,6 +77,14 @@ Install rvm and ruby 2.2.0
 ./rvm.sh
 ```
 
+### Install node
+
+Install node version 0.10
+
+```bash
+./nvm.sh
+```
+
 ## Feedback
 
 Suggestions/improvements
