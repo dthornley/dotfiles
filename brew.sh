@@ -106,7 +106,20 @@ brew install zopfli
 #
 brew install nvm
 brew install composer
+
+# Install subversion and replace the /usr/bin versions to ensure that phing uses the correct svn version
+# Phing hardcodes the path to svn (/usr/bin/svn)
 brew install svn
+FILES="svn svnadmin svndumpfilter svnlook svnserve svnsync svnversion"
+for file in ${FILES}
+do
+  if [ -f /usr/bin/${file} ]
+  then
+    sudo mv /usr/bin/${file} /usr/bin/${file}.orig
+    sudo ln -s /usr/local/bin/${file} /usr/bin/${file}
+  fi
+done
+
 brew install mysql
 brew install closure-compiler
 brew install boot2docker
