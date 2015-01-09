@@ -124,6 +124,8 @@ brew install mysql
 brew install closure-compiler
 brew install boot2docker
 brew install gpg
+brew install php55-mongo
+brew install php55-phalcon
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 brew cask install phpstorm
