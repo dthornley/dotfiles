@@ -29,13 +29,14 @@ brew install gnu-sed --with-default-names
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew install bash-completion
 grep /usr/local/bin/bash /etc/shells > /dev/null
 if [ $? -eq 1 ]; then
   echo /usr/local/bin/bash | sudo tee -a /etc/shells
 fi
 chsh -s /usr/local/bin/bash
 
+brew tap homebrew/versions
+brew install bash-completion2
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -92,6 +93,7 @@ brew install xz
 brew install ack
 #brew install exiv2
 brew install git
+brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
