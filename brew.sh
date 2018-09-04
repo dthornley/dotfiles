@@ -22,13 +22,14 @@ brew install gnu-sed --with-default-names
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-grep /usr/local/bin/bash /etc/shells > /dev/null
-if [ $? -eq 1 ]; then
-  echo /usr/local/bin/bash | sudo tee -a /etc/shells
-fi
-chsh -s /usr/local/bin/bash
+# From old install
+#grep /usr/local/bin/bash /etc/shells > /dev/null
+#if [ $? -eq 1 ]; then
+#  echo /usr/local/bin/bash | sudo tee -a /etc/shells
+#fi
+#chsh -s /usr/local/bin/bash
 
-brew tap homebrew/versions
+#brew tap homebrew/versions
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
@@ -40,20 +41,18 @@ fi;
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
-# Install RingoJS and Narwhal.
-# Note that the order in which these are installed is important;
-# see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+# Install GnuPG to enable PGP-signing commits.
+brew install gnupg
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install grep
+brew install openssh
+brew install screen
 # Picturae - install openssl first before php
 brew install openssl
-brew install homebrew/php/php56 --with-gmp
+#brew install homebrew/php/php56 --with-gmp
+brew install php
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -78,7 +77,7 @@ brew install foremost
 brew install netpbm
 brew install nmap
 brew install pngcheck
-#brew install socat
+brew install socat
 brew install sqlmap
 brew install tcpflow
 brew install tcpreplay
@@ -89,8 +88,7 @@ brew install xz
 
 # Install other useful binaries.
 brew install ack
-brew install dark-mode
-#brew install exiv2
+brew install exiv2
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
@@ -100,13 +98,10 @@ brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
-brew install rhino
-brew install speedtest_cli
+brew install rlwrap
 brew install ssh-copy-id
-brew install testssl
 brew install tree
 brew install vbindiff
-brew install webkit2png
 brew install zopfli
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
@@ -132,25 +127,25 @@ do
   fi
 done
 
-brew install mysql
-brew install closure-compiler
-brew install boot2docker
+#brew install mysql
+#brew install closure-compiler
+#brew install boot2docker
 brew install gpg
-brew install php55-mongo
-brew install php55-phalcon
+#brew install php55-mongo
+#brew install php55-phalcon
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
-brew cask install phpstorm
-brew cask install pgadmin3
-brew cask install java
+#brew cask install phpstorm
+#brew cask install pgadmin3
+#brew cask install java
 brew cask install google-chrome
-brew cask install google-chrome-canary
+#brew cask install google-chrome-canary
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install iterm2
 #brew cask install macvim
-brew cask install miro-video-converter
-brew cask install opera
+#brew cask install miro-video-converter
+#brew cask install opera
 brew cask install sublime-text
 brew cask install the-unarchiver
 brew cask install ukelele
