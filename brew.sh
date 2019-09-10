@@ -8,9 +8,13 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
+
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
+ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
@@ -18,24 +22,14 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install Bash 4.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
+# Install a modern version of Bash.
 brew install bash
-# From old install
-#grep /usr/local/bin/bash /etc/shells > /dev/null
-#if [ $? -eq 1 ]; then
-#  echo /usr/local/bin/bash | sudo tee -a /etc/shells
-#fi
-#chsh -s /usr/local/bin/bash
-
-#brew tap homebrew/versions
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
+if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
+  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
+  chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
 # Install `wget` with IRI support.
@@ -52,7 +46,8 @@ brew install screen
 # Picturae - install openssl first before php
 brew install openssl
 #brew install homebrew/php/php56 --with-gmp
-brew install php
+#brew install php
+brew install gmp
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -83,7 +78,7 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
+#brew install xpdf
 brew install xz
 
 # Install other useful binaries.
@@ -91,6 +86,7 @@ brew install ack
 brew install exiv2
 brew install git
 brew install git-lfs
+brew install gs
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
@@ -116,16 +112,16 @@ brew install composer
 
 # Install subversion and replace the /usr/bin versions to ensure that phing uses the correct svn version
 # Phing hardcodes the path to svn (/usr/bin/svn)
-brew install svn
-FILES="svn svnadmin svndumpfilter svnlook svnserve svnsync svnversion"
-for file in ${FILES}
-do
-  if [ -f /usr/bin/${file} ]
-  then
-    sudo mv /usr/bin/${file} /usr/bin/${file}.orig
-    sudo ln -s /usr/local/bin/${file} /usr/bin/${file}
-  fi
-done
+#brew install svn
+#FILES="svn svnadmin svndumpfilter svnlook svnserve svnsync svnversion"
+#for file in ${FILES}
+#do
+#  if [ -f /usr/bin/${file} ]
+#  then
+#    sudo mv /usr/bin/${file} /usr/bin/${file}.orig
+#    sudo ln -s /usr/local/bin/${file} /usr/bin/${file}
+#  fi
+#done
 
 #brew install mysql
 #brew install closure-compiler
@@ -140,15 +136,15 @@ brew tap caskroom/versions
 #brew cask install java
 brew cask install google-chrome
 #brew cask install google-chrome-canary
-brew cask install imagealpha
-brew cask install imageoptim
+#brew cask install imagealpha
+#brew cask install imageoptim
 brew cask install iterm2
 #brew cask install macvim
 #brew cask install miro-video-converter
 #brew cask install opera
 brew cask install sublime-text
 brew cask install the-unarchiver
-brew cask install ukelele
+#brew cask install ukelele
 brew cask install virtualbox
 brew cask install vlc
 
